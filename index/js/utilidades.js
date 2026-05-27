@@ -66,10 +66,12 @@ function crearTarjetaPersonaje(personaje) {
     adicionarElementoAContenedor(crearDato("Raza", personaje.race || "Desconocida"), info);
     adicionarElementoAContenedor(crearDato("Ki", personaje.ki || "0"), info);
 
-    var btn = crearElementoTexto("button", "Ver detalle");
+   var btn = crearElementoTexto("button", "Ver detalle");
     btn.classList.add("btn-detalle");
     btn.onclick = function () {
-        window.location.href = "detalle.html?id=" + personaje.id;
+       
+        var rutaActual = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/'));
+        window.location.href = rutaActual + "/detalle.html?id=" + personaje.id;
     };
     adicionarElementoAContenedor(btn, info);
     adicionarElementoAContenedor(info, card);
