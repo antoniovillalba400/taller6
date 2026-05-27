@@ -78,15 +78,15 @@ function mostrarFichaPersonaje(personaje) {
     var desc = crearElementoTexto("p", personaje.description || "Sin descripción disponible.");
     desc.classList.add("ficha-desc");
     adicionarElementoAContenedor(desc, info);
-
-    /* botón ver planeta */
     if (personaje.originPlanet) {
         var btnPlaneta = crearElementoTexto("button",
             "Ver planeta: " + personaje.originPlanet.name
         );
         btnPlaneta.classList.add("btn-planeta");
         btnPlaneta.onclick = function () {
-            window.location.href = "planeta.html?id=" + personaje.originPlanet.id;
+            // Mantiene la estructura de carpetas de GitHub Pages activa
+            var rutaActual = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/'));
+            window.location.href = rutaActual + "/planeta.html?id=" + personaje.originPlanet.id;
         };
         adicionarElementoAContenedor(btnPlaneta, info);
     }
